@@ -1,7 +1,7 @@
 # Mini Sistema de Gestão de Transportadora com JPA/Hibernate
 Feito para estudos de persistência com JPA/Hibernate e padrões de acesso a dados!
 
-Este projeto implementa a camada de persistência de um pequeno sistema de gestão para transportadoras usando Java Persistence API (JPA) e Hibernate. Desenvolvido como atividade acadêmica (IFMA/Prof Joao Carlos Pinheiro) o sistema gerencia clientes, cidades e fretes, com cálculo automático de valores baseado em peso e taxas regionais.
+Este projeto implementa a camada de persistência de um pequeno sistema de gestão para transportadoras usando Java Persistence API (JPA) e Hibernate. Desenvolvido como atividade acadêmica Nathalia Andrade Froz (IFMA/Prof Joao Carlos Pinheiro) o sistema gerencia clientes, cidades e fretes, com cálculo automático de valores baseado em peso e taxas regionais.
 
 ## Principais recursos:
 - Cadastro de clientes, cidades e fretes
