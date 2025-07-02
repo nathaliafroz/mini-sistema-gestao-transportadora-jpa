@@ -36,7 +36,7 @@ Este projeto implementa a camada de persistÃªncia de um pequeno sistema de gestÃ
 
 - Calcula valores automaticamente
 
-- Consulta fretes por cliente
+- Consulta fretes por id
 
   
 
