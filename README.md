@@ -38,3 +38,9 @@ Este projeto implementa a camada de persistÃªncia de um pequeno sistema de gestÃ
 
 - Consulta fretes por cliente
 
+  
+
+https://github.com/user-attachments/assets/6100fb74-2568-4d0d-94b5-92ee997fab34
+
+
+
