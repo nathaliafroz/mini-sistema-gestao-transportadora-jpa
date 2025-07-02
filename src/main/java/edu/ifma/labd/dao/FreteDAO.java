@@ -19,4 +19,20 @@ public  class FreteDAO extends GenericDAO<Frete> {
         em.close();
         return fretes;
     }
+
+
+    public Frete findByIdWithRelations(Long id) {
+        EntityManager em = emf.createEntityManager();
+        try {
+            String jpql = "SELECT f FROM Frete f " +
+                    "LEFT JOIN FETCH f.cidade " +
+                    "LEFT JOIN FETCH f.cliente " +
+                    "WHERE f.id = :id";
+            return em.createQuery(jpql, Frete.class)
+                    .setParameter("id", id)
+                    .getSingleResult();
+        } finally {
+            em.close();
+        }
+    }
 }

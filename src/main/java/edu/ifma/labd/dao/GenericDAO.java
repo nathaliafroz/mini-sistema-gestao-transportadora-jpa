@@ -2,6 +2,7 @@ package edu.ifma.labd.dao;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
 
 import java.util.List;
@@ -41,12 +42,28 @@ public class GenericDAO<T> {
 
     public void update(T entity) {
         EntityManager em = emf.createEntityManager();
+        EntityTransaction transaction = em.getTransaction();
         try {
-            em.getTransaction().begin();
-            em.merge(entity);  // Atualiza a entidade
-            em.getTransaction().commit();
+            transaction.begin();
+            em.merge(entity);
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction.isActive()) transaction.rollback();
+            throw e;
         } finally {
             em.close();
         }
     }
+
+    public void delete(Long id) {
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        T entity = em.find(entityClass, id);
+        if (entity != null) {
+            em.remove(entity);
+        }
+        em.getTransaction().commit();
+        em.close();
+    }
+
 }

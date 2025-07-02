@@ -6,9 +6,9 @@ import edu.ifma.labd.model.Cidade;
 public class CadastroCidade {
     public static void main(String[] args) {
         Cidade cidade = new Cidade();
-        cidade.setNome("Imperatriz");
-        cidade.setEstado("MA");
-        cidade.setTaxaEntrega(18.5);
+        cidade.setNome("Rio De Janeiro");
+        cidade.setEstado("RJ");
+        cidade.setTaxaEntrega(23.0);
 
         GenericDAO<Cidade> cidadeDAO = new GenericDAO<>(Cidade.class);
         cidadeDAO.create(cidade);

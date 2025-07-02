@@ -6,9 +6,9 @@ import edu.ifma.labd.model.Cliente;
 public class CadastroCliente {
     public static void main(String[] args) {
         Cliente cliente = new Cliente();
-        cliente.setNome("Transportes Maranhão");
-        cliente.setEndereco("Rua das Palmeiras, 456");
-        cliente.setTelefone("(98) 3232-1212");
+        cliente.setNome("Rael Silva");
+        cliente.setEndereco("Rua do Ario");
+        cliente.setTelefone("(98) 2345- 7869");
 
         GenericDAO<Cliente> clienteDAO = new GenericDAO<>(Cliente.class);
         clienteDAO.create(cliente);
