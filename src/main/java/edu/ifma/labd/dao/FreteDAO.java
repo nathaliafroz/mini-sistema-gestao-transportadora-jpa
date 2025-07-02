@@ -2,6 +2,7 @@ package edu.ifma.labd.dao;
 
 import edu.ifma.labd.model.Frete;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityTransaction;
 
 import java.util.List;
 
@@ -35,4 +36,8 @@ public  class FreteDAO extends GenericDAO<Frete> {
             em.close();
         }
     }
+
+
+
+
 }

@@ -12,16 +12,16 @@ public class CadastroFrete {
     public static void main(String[] args) {
 
         GenericDAO<Cliente> clienteDAO = new GenericDAO<>(Cliente.class);
-        Cliente cliente = clienteDAO.findById(6L);
+        Cliente cliente = clienteDAO.findById(11L);
 
 
         GenericDAO<Cidade> cidadeDAO = new GenericDAO<>(Cidade.class);
-        Cidade cidade = cidadeDAO.findById(6L);
+        Cidade cidade = cidadeDAO.findById(11L);
 
         Frete frete = new Frete();
-        frete.setCodigo("JUN-2025-123");
-        frete.setDescricao("Fogao");
-        frete.setPesoTotal(23.0);
+        frete.setCodigo("JUN-2025-228");
+        frete.setDescricao("Mesa");
+        frete.setPesoTotal(2.0);
         frete.setCliente(cliente);
         frete.setCidade(cidade);
         frete.calcularValorFrete(VALOR_FIXO);

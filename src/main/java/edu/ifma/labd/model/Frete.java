@@ -24,10 +24,9 @@ public @Data class Frete {
 
     // Metodo para calcular o valor do frete
     public void calcularValorFrete(Double valorFixo) {
-        if (pesoTotal == null || cidade == null || cidade.getTaxaEntrega() == null) {
-            throw new IllegalStateException("Dados incompletos para cálculo do frete");
+        if (cidade != null && pesoTotal != null) {
+            this.valorFrete = (pesoTotal * valorFixo) + cidade.getTaxaEntrega();
         }
-        this.valorFrete = (pesoTotal * valorFixo) + cidade.getTaxaEntrega();
     }
 
 

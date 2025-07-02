@@ -34,10 +34,12 @@ public class GenericDAO<T> {
 
     public List<T> findAll() {
         EntityManager em = emf.createEntityManager();
-        String jpql = "SELECT e FROM " + entityClass.getSimpleName() + " e";
-        List<T> result = em.createQuery(jpql, entityClass).getResultList();
-        em.close();
-        return result;
+        try {
+            String jpql = "SELECT e FROM " + entityClass.getSimpleName() + " e";
+            return em.createQuery(jpql, entityClass).getResultList();
+        } finally {
+            em.close();
+        }
     }
 
     public void update(T entity) {
@@ -57,13 +59,16 @@ public class GenericDAO<T> {
 
     public void delete(Long id) {
         EntityManager em = emf.createEntityManager();
-        em.getTransaction().begin();
-        T entity = em.find(entityClass, id);
-        if (entity != null) {
-            em.remove(entity);
+        try {
+            em.getTransaction().begin();
+            T entity = em.find(entityClass, id);
+            if (entity != null) {
+                em.remove(entity);
+            }
+            em.getTransaction().commit();
+        } finally {
+            em.close();
         }
-        em.getTransaction().commit();
-        em.close();
     }
 
 }
